@@ -1,10 +1,12 @@
 import mysql from 'mysql2/promise'
 
-const connection = await mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'1234',
-    database:'livraria'
+const con = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    port: 3306,
+    password: '1234',
+    database: 'LivrariaDB'
 })
 
-export { connection }
+console.log('--> DB conectado <--');
+export default con;

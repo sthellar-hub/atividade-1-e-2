@@ -1,7 +1,7 @@
-import loginController from './controller/loginController'
+import usuarioController from './controller/usuarioController.js'
+import livroController from './controller/livroController.js'
 
-export function adicionarRotas(api) {
-    api.use(loginController)
-
-    
+export default function adicionarRotas(servidor) {
+    servidor.use(usuarioController);
+    servidor.use(livroController);
 }
