@@ -61,6 +61,7 @@ export default function Register() {
                 <br />
 
                 <button onClick={cadastrar}>Criar Usuario</button>
+                <button onClick={() => navigate('/entrar')}>Já tem conta? Entre</button>
                 <Rodape/>
             </div>
         </div>
