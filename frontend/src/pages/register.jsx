@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Cabecalho from "../components/cabecalho/cabecalho.jsx";
+import Rodape from "../components/rodape/Rodape.jsx";
 import api from "../api";
 import { useNavigate } from "react-router";
 import './register.scss'
@@ -35,6 +37,7 @@ export default function Register() {
 
     return (
         <div>
+            <Cabecalho showNav={false}/>
             <h1>Cadastro</h1>
 
             <div>
@@ -58,6 +61,7 @@ export default function Register() {
                 <br />
 
                 <button onClick={cadastrar}>Criar Usuario</button>
+                <Rodape/>
             </div>
         </div>
     );

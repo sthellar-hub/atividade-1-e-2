@@ -1,6 +1,6 @@
-import Cabecalho from "../components/cabecalho/cabecalho";
-import Rodape from "../components/rodape/Rodape";
-import CartaoDestaque from "../components/cartaoDestaque";
+import Cabecalho from "../components/cabecalho/cabecalho.jsx";
+import Rodape from "../components/rodape/Rodape.jsx";
+import CartaoDestaque from "../components/cartaoDestaque/index.jsx";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import "./inicio.scss";

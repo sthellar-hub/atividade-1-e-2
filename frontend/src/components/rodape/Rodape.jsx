@@ -15,13 +15,12 @@ export default function Rodape() {
         </div>
         <div className="desenvolvido-por">
           <h4>Desenvolvido por</h4>
-          <p>Aluno 1 da silva</p>
-          <p>Aluno 2 dos santos</p>
-          <p>Aluno 3 teixeira machado</p>
+          <p>Renan Nunes de Jesus</p>
+          <p>Sthella Bottari dos Santos</p>
         </div>
         <div className="turma">
           <h4>Turma</h4>
-          <p>Informática X</p>
+          <p>Informática A</p>
         </div>
       </div>
       <div className="rodape-footer">

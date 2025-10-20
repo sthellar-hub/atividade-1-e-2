@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Cabecalho from "../components/cabecalho/cabecalho.jsx";
+import Rodape from "../components/rodape/Rodape.jsx";
 import api from "../api";
 import { useNavigate } from "react-router";
 import './login.scss'
@@ -39,6 +41,7 @@ export default function Login() {
 
     return (
         <div>
+                <Cabecalho showNav={false}/>
             <h1>Login</h1>
 
             <div>
@@ -64,6 +67,7 @@ export default function Login() {
                 <button onClick={entrar}>Entrar</button>
                 <button onClick={() => navigate('/cadastrar')}>Não tem conta? Cadastre-se</button>
             </div>
+            <Rodape/>
         </div>
     );
 }
