@@ -13,29 +13,48 @@ export default function Login() {
 
     useEffect(() => {
         const nomeUsuario = localStorage.getItem("USUARIO")
+        const nomeAdm = localStorage.getItem("ADM")
 
-        if (nomeUsuario != undefined || nomeUsuario != null) {
+        if (nomeUsuario || nomeAdm) {
             navigate('/')
         }
     }, [])
 
     async function entrar() {
         try {
-            const body = {
+            // Tentar login como usuário normal
+            const bodyUsuario = {
                 "usuario": usuario,
                 "senha": senha
             }
 
-            const response = await api.post('/entrar', body);
-            const token = response.data.token;
-            const nomeUsuario = response.data.usuario.usuario;
+            let response = await api.post('/entrar', bodyUsuario);
+            let token = response.data.token;
+            let nomeUsuario = response.data.usuario.usuario;
 
             localStorage.setItem("USUARIO", nomeUsuario)
             localStorage.setItem("TOKEN", token)
-            
+
             navigate('/')
-        } catch (error) {
-            alert(error)
+        } catch {
+            try {
+                // Se falhar, tentar login como adm
+                const bodyAdm = {
+                    "adm": usuario,
+                    "senha": senha
+                }
+
+                let response = await api.post('/adm/entrar', bodyAdm);
+                let token = response.data.token;
+                let nomeAdm = response.data.adm.adm;
+
+                localStorage.setItem("ADM", nomeAdm)
+                localStorage.setItem("TOKEN", token)
+
+                navigate('/')
+            } catch {
+                alert("Usuário ou senha incorreto(s)")
+            }
         }
     }
 
@@ -66,6 +85,7 @@ export default function Login() {
 
                 <button onClick={entrar}>Entrar</button>
                 <button onClick={() => navigate('/cadastrar')}>Não tem conta? Cadastre-se</button>
+                <button onClick={() => navigate('/adm/entrar')}>Possui uma conta de adm? Clique aqui</button>
             </div>
             <Rodape/>
         </div>

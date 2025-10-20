@@ -18,3 +18,9 @@ CREATE TABLE tb_usuario (
     usuario varchar(255) not null,
     senha varchar(255) not null
 );
+
+CREATE TABLE tb_adm (
+	id int primary key auto_increment not null,
+    adm varchar(255) not null,
+    senha varchar(255) not null
+);

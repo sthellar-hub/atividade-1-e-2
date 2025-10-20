@@ -1,7 +1,7 @@
 import Cabecalho from "../components/cabecalho/cabecalho.jsx";
 import Rodape from "../components/rodape/Rodape.jsx";
 import CartaoDestaque from "../components/cartaoDestaque/index.jsx";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import "./inicio.scss";
 
@@ -30,31 +30,16 @@ const cartoes = [
 
 export default function Inicio() {
   const navigate = useNavigate();
-  const [usuario, setUsuario] = useState("");
-  const [livros, setLivros] = useState([]);
 
   useEffect(() => {
     const nomeUsuario = localStorage.getItem("USUARIO");
+    const nomeAdm = localStorage.getItem("ADM");
 
     // Se o usuário não estiver logado
-    if (nomeUsuario == undefined || nomeUsuario == null) {
+    if (!nomeUsuario && !nomeAdm) {
       navigate("/entrar");
-    } else {
-      setUsuario(nomeUsuario);
     }
   }, []);
-
-  function sair() {
-    localStorage.removeItem("USUARIO");
-    localStorage.removeItem("TOKEN");
-
-    navigate("/entrar");
-  }
-
-  async function listarLivros() {
-    const reponse = await api.get("/livros");
-    setLivros(reponse.data);
-  }
 
   return (
     <div className="app-layout">
@@ -74,8 +59,9 @@ export default function Inicio() {
       </main>
 
       <div className="cartoes">
-        {cartoes.map((c) => (
+        {cartoes.map((c, index) => (
           <CartaoDestaque
+            key={index}
             imagem={c.imagem}
             titulo={c.titulo}
             descricao={c.descricao}

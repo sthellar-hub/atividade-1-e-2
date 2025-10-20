@@ -16,4 +16,27 @@ endpoints.get('/livros/', autenticar, async (req, resp) => {
     }
 })
 
+endpoints.post('/livros/', autenticar, async (req, resp) => {
+    try {
+        if (!req.user.adm) {
+            resp.status(403).send({
+                erro: "Apenas administradores podem publicar livros"
+            })
+            return;
+        }
+
+        let livro = req.body;
+        let id = await db.inserirLivro(livro);
+
+        resp.send({
+            novoId: id
+        })
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
 export default endpoints;

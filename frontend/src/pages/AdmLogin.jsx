@@ -3,10 +3,10 @@ import Cabecalho from "../components/cabecalho/cabecalho.jsx";
 import Rodape from "../components/rodape/Rodape.jsx";
 import api from "../api";
 import { useNavigate } from "react-router";
-import './admin.scss';
+import './login.scss'
 
-export default function Adm() {
-    const [Adm, setAdm] = useState("");
+export default function AdmLogin() {
+    const [adm, setAdm] = useState("");
     const [senha, setSenha] = useState("");
 
     const navigate = useNavigate();
@@ -14,22 +14,26 @@ export default function Adm() {
     useEffect(() => {
         const nomeAdm = localStorage.getItem("ADM")
 
-        if (nomeAdm) {
+        if (nomeAdm != undefined || nomeAdm != null) {
             navigate('/')
         }
     }, [])
 
-    async function cadastrar() {
+    async function entrar() {
         try {
             const body = {
-                "adm": Adm,
+                "adm": adm,
                 "senha": senha
             }
 
-            await api.post('/adm/', body);
+            const response = await api.post('/adm/entrar/', body);
+            const token = response.data.token;
+            const nomeAdm = response.data.adm.adm;
 
-            alert("Usuário cadastrado com sucesso!")
-            navigate('/adm/entrar')
+            localStorage.setItem("ADM", nomeAdm)
+            localStorage.setItem("TOKEN", token)
+
+            navigate('/')
         } catch (error) {
             alert(error)
         }
@@ -37,16 +41,18 @@ export default function Adm() {
 
     return (
         <div>
-            <Cabecalho showNav={false}/>
-            <div className="admin-form">
-                <h1>Cadastro</h1>
+                <Cabecalho showNav={false}/>
+            <h1>Login Admin</h1>
 
-                <label>ADMIN</label>
+            <div>
+                <label>Admin</label>
                 <input
-                    placeholder="Adm"
-                    value={Adm}
+                    placeholder="Admin"
+                    value={adm}
                     onChange={(e) => setAdm(e.target.value)}
                 />
+
+                <br />
 
                 <label>Senha</label>
                 <input
@@ -55,8 +61,11 @@ export default function Adm() {
                     onChange={(e) => setSenha(e.target.value)}
                 />
 
-                <button onClick={cadastrar}>Criar Usuario</button>
-                <button onClick={() => navigate('/adm/entrar')}>Já tem conta? Entre</button>
+                <br />
+                <br />
+
+                <button onClick={entrar}>Entrar</button>
+                <button onClick={() => navigate('/adm')}>Não tem conta? Cadastre-se</button>
             </div>
             <Rodape/>
         </div>
