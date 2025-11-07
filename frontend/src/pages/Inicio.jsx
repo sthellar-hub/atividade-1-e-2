@@ -24,6 +24,7 @@ export default function Inicio() {
       <main className="page-main">
         <section className="content">
           <h1>Seja bem-vindo!</h1>
+          <img src="/images/joia.png" alt="grupo" />
         </section>
       </main>
 
