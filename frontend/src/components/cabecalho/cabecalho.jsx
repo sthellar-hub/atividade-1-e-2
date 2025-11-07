@@ -16,7 +16,7 @@ export default function Cabecalho({ showNav = true }) {
   return (
     <header className="cabecalho">
       <div className="logo">
-        <img src="/images/logoFREI.png" alt="logo FREI" />
+        <Link to="/"><img src="/images/logoFREI.png" alt="logo FREI" /></Link>
         <span className="titulo-navbar"> Sistema  login -Trabalho 4 Bimestre</span>
       </div>
       {showNav && (

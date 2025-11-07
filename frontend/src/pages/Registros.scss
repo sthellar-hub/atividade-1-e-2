@@ -2,14 +2,16 @@
     max-width: 800px;
     margin: 80px auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #e2e2e2;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: #eceaeac4;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
 }
 
 .registros-container h1 {
     text-align: center;
     margin-bottom: 30px;
+    color: #0465ce;
 }
 
 .registros-section {
@@ -22,7 +24,7 @@
 
 .registros-section h2 {
     margin-bottom: 15px;
-    color: #333;
+    color: #414040;
 }
 
 .registros-section ul {

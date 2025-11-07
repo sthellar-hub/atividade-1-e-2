@@ -43,7 +43,7 @@ export default function Registros() {
 
                 {/* Seção de Usuários */}
                 <div className="registros-section">
-                    <h2>Usuários Cadastrados</h2>
+                    <h2>Usuários Cadastrados:</h2>
                     {usuarios.length > 0 ? (
                         <ul>
                             {usuarios.map((usuario) => (
@@ -59,7 +59,7 @@ export default function Registros() {
 
                 {/* Seção de Administradores */}
                 <div className="registros-section">
-                    <h2>Administradores Cadastrados</h2>
+                    <h2>Administradores Cadastrados:</h2>
                     {adms.length > 0 ? (
                         <ul>
                             {adms.map((adm) => (

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-const KEY = '===!!Livraria=='
+const KEY = 'trabalho'
 
 export function gerarToken(userInfo) {
   return jwt.sign(userInfo, KEY)

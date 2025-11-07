@@ -21,9 +21,15 @@
     flex: 1;
 
     img {
-      width: 100px;
+      width: 90px;
       height: auto;
       margin: 0;
+      transform: scale(1);
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
@@ -33,6 +39,7 @@
     color: white;
     flex: 1;
     text-align: center;
+    
   }
 
   .navegacao {
@@ -50,11 +57,14 @@
       font-size: 15px;
       padding-right: 10px;
       padding-left: 10px;
+      transform: scale(1);
+      transition: transform 0.5s ease;
 
       &:hover {
         text-decoration: none;
         background-color: #076edd;
         font-weight: bold;
+        transform: scale(1.1);
       }
     }
   }
