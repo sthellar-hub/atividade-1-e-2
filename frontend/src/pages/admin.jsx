@@ -20,6 +20,11 @@ export default function Adm() {
     }, [])
 
     async function cadastrar() {
+        if (!Adm.trim() || !senha.trim()) {
+            alert("Por favor, preencha todos os campos obrigatórios.");
+            return;
+        }
+
         try {
             const body = {
                 "adm": Adm,
@@ -31,7 +36,11 @@ export default function Adm() {
             alert("Usuário cadastrado com sucesso!")
             navigate('/adm/entrar')
         } catch (error) {
-            alert(error)
+            if (error.response && error.response.data && error.response.data.erro) {
+                alert(error.response.data.erro);
+            } else {
+                alert("Erro ao cadastrar administrador: " + error.message);
+            }
         }
     }
 
@@ -48,15 +57,15 @@ export default function Adm() {
                     onChange={(e) => setAdm(e.target.value)}
                 />
 
-                <label>Senha</label>
+                <label>SENHA</label>
                 <input
                     placeholder="Senha"
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
                 />
 
-                <button onClick={cadastrar}>Criar Usuario</button>
-                <button onClick={() => navigate('/adm/entrar')}>Já tem conta? Entre</button>
+                <button onClick={cadastrar}>Criar conta admin</button>
+                <button onClick={() => navigate('/adm/entrar')}>Já tem conta admin? Entre</button>
             </div>
             <Rodape/>
         </div>

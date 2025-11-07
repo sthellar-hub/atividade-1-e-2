@@ -16,15 +16,14 @@ export default function Cabecalho({ showNav = true }) {
   return (
     <header className="cabecalho">
       <div className="logo">
-        <img src="/images/logo.png" alt="Minha Biblioteca" />
-        <span className="titulo-navbar">Livraria Frei</span>
+        <img src="/images/logoFREI.png" alt="logo FREI" />
+        <span className="titulo-navbar"> Sistema  login -Trabalho 4 Bimestre</span>
       </div>
       {showNav && (
         <nav className="navegacao">
           <Link to="/">Início</Link>
-          {isAdm && <Link to="/publicar">Publicar</Link>}
+          {isAdm && <Link to="/Registros">Registros</Link>}
           <Link onClick={sair} to="/entrar">Sair</Link>
-          <Link to="/sobre">Sobre</Link>
         </nav>
       )}
     </header>

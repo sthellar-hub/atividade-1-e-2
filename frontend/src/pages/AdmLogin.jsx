@@ -3,7 +3,7 @@ import Cabecalho from "../components/cabecalho/cabecalho.jsx";
 import Rodape from "../components/rodape/Rodape.jsx";
 import api from "../api";
 import { useNavigate } from "react-router";
-import './login.scss'
+import './AdmLogin.scss'
 
 export default function AdmLogin() {
     const [adm, setAdm] = useState("");
@@ -11,15 +11,20 @@ export default function AdmLogin() {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const nomeAdm = localStorage.getItem("ADM")
+    // useEffect(() => {
+    //     const nomeAdm = localStorage.getItem("ADM")
 
-        if (nomeAdm != undefined || nomeAdm != null) {
-            navigate('/')
-        }
-    }, [])
+    //     if (nomeAdm != undefined || nomeAdm != null) {
+    //         navigate('/')
+    //     }
+    // }, [])
 
     async function entrar() {
+        if (!adm || !senha) {
+            alert("Por favor, preencha todos os campos.");
+            return;
+        }
+
         try {
             const body = {
                 "adm": adm,
@@ -41,7 +46,8 @@ export default function AdmLogin() {
 
     return (
         <div>
-                <Cabecalho showNav={false}/>
+            <Cabecalho showNav={false}/>
+            <div className="admin-form">
             <h1>Login Admin</h1>
 
             <div>
@@ -65,7 +71,9 @@ export default function AdmLogin() {
                 <br />
 
                 <button onClick={entrar}>Entrar</button>
-                <button onClick={() => navigate('/adm')}>Não tem conta? Cadastre-se</button>
+                <button onClick={() => navigate('/adm')}>Não tem conta admin? Cadastre-se</button>
+                <a onClick={() => navigate('/entrar')}>Nao é adimin? Volte</a>
+            </div>
             </div>
             <Rodape/>
         </div>

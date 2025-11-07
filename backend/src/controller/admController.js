@@ -43,4 +43,16 @@ endpoints.post('/', async (req, resp) => {
     }
 })
 
+endpoints.get('/', async (req, resp) => {
+    try {
+        let adms = await db.listarAdms();
+        resp.send(adms);
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
 export default endpoints;

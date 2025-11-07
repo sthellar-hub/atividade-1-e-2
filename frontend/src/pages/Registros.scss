@@ -1,0 +1,45 @@
+.registros-container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.registros-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.registros-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.registros-section h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.registros-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.registros-section li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.registros-section li:last-child {
+    border-bottom: none;
+}
+
+.registros-section p {
+    color: #666;
+    font-style: italic;
+}

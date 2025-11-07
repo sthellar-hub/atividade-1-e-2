@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Cabecalho from "../components/cabecalho/cabecalho.jsx";
 import Rodape from "../components/rodape/Rodape.jsx";
-import api from "../api";
+import api from "../api.js";
 import { useNavigate } from "react-router";
-import './register.scss'
+import './cadastro.scss'
 
 export default function Register() {
     const [usuario, setUsuario] = useState("");
@@ -11,15 +11,20 @@ export default function Register() {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const nomeUsuario = localStorage.getItem("USUARIO")
+    // useEffect(() => {
+    //     const nomeUsuario = localStorage.getItem("USUARIO")
 
-        if (nomeUsuario != undefined || nomeUsuario != null) {
-            navigate('/')
-        }
-    }, [])
+    //     if (nomeUsuario != undefined || nomeUsuario != null) {
+    //         navigate('/')
+    //     }
+    // }, [])
 
     async function cadastrar() {
+        if (!usuario.trim() || !senha.trim()) {
+            alert("Por favor, preencha todos os campos obrigatórios.");
+            return;
+        }
+
         try {
             const body = {
                 "usuario": usuario,
@@ -31,13 +36,18 @@ export default function Register() {
             alert("Usuário cadastrado com sucesso!")
             navigate('/entrar')
         } catch (error) {
-            alert(error)
+            if (error.response && error.response.data && error.response.data.erro) {
+                alert(error.response.data.erro);
+            } else {
+                alert("Erro ao cadastrar usuário: " + error.message);
+            }
         }
     }
 
     return (
         <div>
             <Cabecalho showNav={false}/>
+            <div className="admin-form">
             <h1>Cadastro</h1>
 
             <div>
@@ -62,8 +72,11 @@ export default function Register() {
 
                 <button onClick={cadastrar}>Criar Usuario</button>
                 <button onClick={() => navigate('/entrar')}>Já tem conta? Entre</button>
-                <Rodape/>
+                
             </div>
+            
+            </div>
+            <Rodape/>
         </div>
     );
 }

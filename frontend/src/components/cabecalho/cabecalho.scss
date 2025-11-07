@@ -2,10 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #cac9c9;
+  background-color: #20b7ede6;
   padding: 15px 30px;
-  box-shadow: 0 7px 9px rgba(0,0,0,0.1);
-  border-bottom: 5px solid rgb(66, 66, 66);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+  
 
   .login {
     background-color: white;
@@ -21,16 +21,16 @@
     flex: 1;
 
     img {
-      width: 120px;
+      width: 100px;
       height: auto;
       margin: 0;
     }
   }
 
   .titulo-navbar {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #007BFF;
+    color: white;
     flex: 1;
     text-align: center;
   }
@@ -40,15 +40,20 @@
     gap: 35px;
 
     a {
-      color: #007BFF;
+      background-color: #0465ce;
+      border-radius: 5px;
+      box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+      padding: 5px;
+      color: white;
       text-decoration: none;
       font-weight: 500;
-      font-size: 20px;
+      font-size: 15px;
       padding-right: 10px;
+      padding-left: 10px;
 
       &:hover {
         text-decoration: none;
-        color: rgb(84, 84, 250);
+        background-color: #076edd;
         font-weight: bold;
       }
     }

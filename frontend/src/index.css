@@ -87,18 +87,3 @@ body {
 .login-form button:hover {
   background-color: #0056b3;
 }
-
-@media (max-width: 768px) {
-  .page-main {
-    flex-direction: column;
-  }
-  
-  .sidebar {
-    width: 100%;
-  }
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

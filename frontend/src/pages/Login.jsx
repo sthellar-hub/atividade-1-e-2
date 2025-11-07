@@ -3,7 +3,7 @@ import Cabecalho from "../components/cabecalho/cabecalho.jsx";
 import Rodape from "../components/rodape/Rodape.jsx";
 import api from "../api";
 import { useNavigate } from "react-router";
-import './login.scss'
+import './Login.scss'
 
 export default function Login() {
     const [usuario, setUsuario] = useState("");
@@ -11,16 +11,21 @@ export default function Login() {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const nomeUsuario = localStorage.getItem("USUARIO")
-        const nomeAdm = localStorage.getItem("ADM")
+    // useEffect(() => {
+    //     const nomeUsuario = localStorage.getItem("USUARIO")
+    //     const nomeAdm = localStorage.getItem("ADM")
 
-        if (nomeUsuario || nomeAdm) {
-            navigate('/')
-        }
-    }, [])
+    //     if (nomeUsuario || nomeAdm) {
+    //         navigate('/')
+    //     }
+    // }, [])
 
     async function entrar() {
+        if (!usuario || !senha) {
+            alert("Por favor, preencha todos os campos.");
+            return;
+        }
+
         try {
             // Tentar login como usuário normal
             const bodyUsuario = {
@@ -59,8 +64,9 @@ export default function Login() {
     }
 
     return (
-        <div>
+        <div >
                 <Cabecalho showNav={false}/>
+                <div className="admin-form">
             <h1>Login</h1>
 
             <div>
@@ -84,8 +90,9 @@ export default function Login() {
                 <br />
 
                 <button onClick={entrar}>Entrar</button>
-                <button onClick={() => navigate('/cadastrar')}>Não tem conta? Cadastre-se</button>
-                <button onClick={() => navigate('/adm/entrar')}>Possui uma conta de adm? Clique aqui</button>
+                <button onClick={() => navigate('/cadastro')}>Não tem conta? Cadastre-se</button>
+                <a onClick={() => navigate('/adm/entrar')}>Possui uma conta de adm? Clique aqui</a>
+            </div>
             </div>
             <Rodape/>
         </div>

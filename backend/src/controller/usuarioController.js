@@ -43,4 +43,16 @@ endpoints.post('/usuario/', async (req, resp) => {
     }
 })
 
+endpoints.get('/usuarios/', async (req, resp) => {
+    try {
+        let usuarios = await db.listarUsuarios();
+        resp.send(usuarios);
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
 export default endpoints;
