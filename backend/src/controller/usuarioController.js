@@ -1,6 +1,6 @@
 import { gerarToken } from '../utils/jwt.js';
 
-import * as db from '../repository/usuarioRepository.js';
+import * as repo from '../repository/usuarioRepository.js';
 
 import { Router } from "express";
 const endpoints = Router();
@@ -8,7 +8,7 @@ const endpoints = Router();
 endpoints.post('/entrar/', async (req, resp) => {
     try {
         let pessoa = req.body;
-        let usuario = await db.validarUsuario(pessoa);
+        let usuario = await repo.validarUsuario(pessoa);
 
         if (usuario == null) {
             resp.send({ erro: "Usuário ou senha incorreto(s)" })
@@ -30,7 +30,7 @@ endpoints.post('/entrar/', async (req, resp) => {
 endpoints.post('/usuario/', async (req, resp) => {
     try {
         let pessoa = req.body;
-        let id = await db.inserirUsuario(pessoa);
+        let id = await repo.inserirUsuario(pessoa);
 
         resp.send({
             novoId: id
@@ -45,7 +45,7 @@ endpoints.post('/usuario/', async (req, resp) => {
 
 endpoints.get('/usuarios/', async (req, resp) => {
     try {
-        let usuarios = await db.listarUsuarios();
+        let usuarios = await repo.listarUsuarios();
         resp.send(usuarios);
     }
     catch (err) {

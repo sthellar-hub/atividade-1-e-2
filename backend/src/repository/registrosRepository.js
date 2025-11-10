@@ -1,4 +1,4 @@
-import con from "./connection.js";
+import connection from "./connection.js";
 
 export async function listarLivros() {
     const comando = `
@@ -10,7 +10,7 @@ export async function listarLivros() {
         from tb_livro
     `;
 
-    let registros = await con.query(comando);
+    let registros = await connection.query(comando);
     return registros[0];
 }
 
@@ -20,7 +20,7 @@ export async function inserirLivro(livro) {
         values (?, ?, ?)
     `;
 
-    let resposta = await con.query(comando, [livro.titulo, livro.autor, livro.capa_url]);
+    let resposta = await connection.query(comando, [livro.titulo, livro.autor, livro.capa_url]);
     let info = resposta[0];
 
     return info.insertId;

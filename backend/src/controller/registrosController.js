@@ -1,4 +1,4 @@
-import * as db from '../repository/registrosRepository.js';
+import * as repo from '../repository/registrosRepository.js';
 
 import { Router } from "express";
 import { autenticar } from '../utils/jwt.js';
@@ -6,7 +6,7 @@ const endpoints = Router();
 
 endpoints.get('/livros/', autenticar, async (req, resp) => {
     try {
-        let livros = await db.listarLivros();
+        let livros = await repo.listarLivros();
         resp.send(livros)
     }
     catch (err) {
@@ -26,7 +26,7 @@ endpoints.post('/livros/', autenticar, async (req, resp) => {
         }
 
         let livro = req.body;
-        let id = await db.inserirLivro(livro);
+        let id = await repo.inserirLivro(livro);
 
         resp.send({
             novoId: id
