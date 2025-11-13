@@ -1,24 +1,24 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Inicio from './pages/Inicio.jsx';
-import Login from './pages/login.jsx';
-import Cadastro from './pages/cadastro.jsx';
-import Registro from './pages/Registros.jsx';
-import Adm from './pages/admin.jsx';
-import AdmLogin from './pages/AdmLogin.jsx';
+import Home from './pages/home';
+import Login from './pages/login';
+import Register from './pages/register';
+import Log from './pages/log';
+import AdmRegister from './pages/admRegister';
+import AdmLogin from './pages/admLogin';
 
-const Navegacao = () => {
+const Navigation = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Inicio />} />
+        <Route path="/" element={<Home />} />
         <Route path="/entrar" element={<Login />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/Registros" element={<Registro />} />
-        <Route path="/adm" element={<Adm />} />
+        <Route path="/cadastro" element={<Register />} />
+        <Route path="/Registros" element={<Log />} />
+        <Route path="/adm" element={<AdmRegister />} />
         <Route path="/adm/entrar" element={<AdmLogin />} />
       </Routes>
     </BrowserRouter>
   );
 };
 
-export default Navegacao;
+export default Navigation;

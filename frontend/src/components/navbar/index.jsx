@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
-import './cabecalho.scss';
+import './index.scss';
 
-export default function Cabecalho({ showNav = true }) {
+export default function Navbar({ showNav = true }) {
   const navigate = useNavigate();
   const isAdm = localStorage.getItem("ADM");
 

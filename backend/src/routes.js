@@ -1,9 +1,9 @@
-import usuarioController from './controller/usuarioController.js'
+import usuarioController from './controller/userController.js'
 import admController from './controller/admController.js'
-import registrosController from './controller/registrosController.js'
+import registrosController from './controller/logController.js'
 
 export default function adicionarRotas(api) {
     api.use(usuarioController);
     api.use('/adm', admController);
-    api.use(registrosController);
+    api.use('/registros', registrosController);
 }

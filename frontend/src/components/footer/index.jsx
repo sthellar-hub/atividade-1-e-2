@@ -1,6 +1,6 @@
-import './Rodape.scss';
+import './index.scss';
 
-export default function Rodape() {
+export default function Footer() {
   return (
     <footer className="rodape">
       <div className="rodape-container">
@@ -15,7 +15,7 @@ export default function Rodape() {
         </div>
         <div className="desenvolvido-por">
           <h4>Desenvolvido por</h4>
-          <p>Sthella Bottari dos Santos</p>
+          <p>Renan Nunes De Jesus</p>
         </div>
         <div className="turma">
           <h4>Turma</h4>

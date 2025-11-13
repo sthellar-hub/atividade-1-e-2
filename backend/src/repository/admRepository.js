@@ -1,4 +1,4 @@
-import connection from "./connection.js";
+import connection from "../config/connection.js";
 import crypto from "crypto-js";
 
 export async function inserirAdm(pessoa) {

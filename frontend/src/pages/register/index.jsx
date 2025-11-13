@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Cabecalho from "../components/cabecalho/cabecalho.jsx";
-import Rodape from "../components/rodape/Rodape.jsx";
-import api from "../api.js";
+import Navbar from "../../components/navbar/index.jsx";
+import Footer from "../../components/footer/index.jsx";
+import api from "../../api.js";
 import { useNavigate } from "react-router";
-import './cadastro.scss'
+import './index.scss'
 
 export default function Register() {
     const [usuario, setUsuario] = useState("");
@@ -46,7 +46,7 @@ export default function Register() {
 
     return (
         <div>
-            <Cabecalho showNav={false}/>
+            <Navbar showNav={false}/>
             <div className="admin-form">
             <h1>Cadastro</h1>
 
@@ -71,12 +71,16 @@ export default function Register() {
                 <br />
 
                 <button onClick={cadastrar}>Criar Usuario</button>
-                <button onClick={() => navigate('/entrar')}>Já tem conta? Entre</button>
+                <p>
+                    Já tem conta? 
+                <button onClick={() => navigate('/entrar')}>
+                    Entre</button>
+                </p>
                 
             </div>
             
             </div>
-            <Rodape/>
+            <Footer/>
         </div>
     );
 }

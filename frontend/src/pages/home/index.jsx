@@ -1,10 +1,10 @@
-import Cabecalho from "../components/cabecalho/cabecalho.jsx";
-import Rodape from "../components/rodape/Rodape.jsx";
+import Navbar from "../../components/navbar/index.jsx";
+import Footer from "../../components/footer/index.jsx";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
-import './Inicio.scss'
+import './index.scss'
 
-export default function Inicio() {
+export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function Inicio() {
 
   return (
     <div className="app-layout">
-      <Cabecalho />
+      <Navbar />
 
       <main className="page-main">
         <section className="content">
@@ -28,7 +28,7 @@ export default function Inicio() {
         </section>
       </main>
 
-      <Rodape />
+      <Footer />
     </div>
   );
 }

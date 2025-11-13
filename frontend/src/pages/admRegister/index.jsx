@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Cabecalho from "../components/cabecalho/cabecalho.jsx";
-import Rodape from "../components/rodape/Rodape.jsx";
-import api from "../api";
+import Navbar from "../../components/navbar/index.jsx";
+import Footer from "../../components/footer/index.jsx";
+import api from "../../api.js";
 import { useNavigate } from "react-router";
-import './admin.scss';
+import './index.scss';
 
-export default function Adm() {
+export default function AdmRegister() {
     const [Adm, setAdm] = useState("");
     const [senha, setSenha] = useState("");
 
@@ -46,7 +46,7 @@ export default function Adm() {
 
     return (
         <div>
-            <Cabecalho showNav={false}/>
+            <Navbar showNav={false}/>
             <div className="admin-form">
                 <h1>Cadastro</h1>
 
@@ -65,9 +65,12 @@ export default function Adm() {
                 />
 
                 <button onClick={cadastrar}>Criar conta admin</button>
-                <button onClick={() => navigate('/adm/entrar')}>Já tem conta admin? Entre</button>
+                <p>
+                    Já tem conta admin? 
+                <button onClick={() => navigate('/adm/entrar')}>Entre</button>
+                </p>
             </div>
-            <Rodape/>
+            <Footer/>
         </div>
     );
 }

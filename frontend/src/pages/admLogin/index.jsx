@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Cabecalho from "../components/cabecalho/cabecalho.jsx";
-import Rodape from "../components/rodape/Rodape.jsx";
-import api from "../api";
+import Navbar from "../../components/navbar/index.jsx";
+import Footer from "../../components/footer/index.jsx";
+import api from "../../api.js";
 import { useNavigate } from "react-router";
-import './AdmLogin.scss'
+import './index.scss'
 
 export default function AdmLogin() {
     const [adm, setAdm] = useState("");
@@ -46,7 +46,7 @@ export default function AdmLogin() {
 
     return (
         <div>
-            <Cabecalho showNav={false}/>
+            <Navbar showNav={false}/>
             <div className="admin-form">
             <h1>Login Admin</h1>
 
@@ -71,11 +71,20 @@ export default function AdmLogin() {
                 <br />
 
                 <button onClick={entrar}>Entrar</button>
-                <button onClick={() => navigate('/adm')}>Não tem conta admin? Cadastre-se</button>
-                <a onClick={() => navigate('/entrar')}>Nao é adimin? Volte</a>
+                <p>
+                    Não tem conta admin?
+                <button onClick={() => navigate('/adm')}>
+                     Cadastre-se
+                     </button>
+
+                </p>
+                <p>
+                    Não é adimin? 
+                <a onClick={() => navigate('/entrar')}>Volte</a>
+                </p>
             </div>
             </div>
-            <Rodape/>
+            <Footer/>
         </div>
     );
 }
