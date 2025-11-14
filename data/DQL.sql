@@ -2,4 +2,4 @@
 
 SELECT * FROM tb_usuario;
 
-SELECT * FROM tb_livro;
+SELECT * FROM tb_log;
