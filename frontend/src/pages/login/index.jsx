@@ -11,15 +11,6 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //     const nomeUsuario = localStorage.getItem("USUARIO")
-  //     const nomeAdm = localStorage.getItem("ADM")
-
-  //     if (nomeUsuario || nomeAdm) {
-  //         navigate('/')
-  //     }
-  // }, [])
-
   async function entrar() {
     if (!usuario || !senha) {
       alert("Por favor, preencha todos os campos.");
@@ -27,7 +18,6 @@ export default function Login() {
     }
 
     try {
-      // Tentar login como usuário normal
       const bodyUsuario = {
         usuario: usuario,
         senha: senha,
@@ -43,7 +33,7 @@ export default function Login() {
       navigate("/");
     } catch {
       try {
-        // Se falhar, tentar login como adm
+        
         const bodyAdm = {
           adm: usuario,
           senha: senha,
@@ -66,7 +56,7 @@ export default function Login() {
   return (
     <div>
       <Navbar showNav={false} />
-      <div className="admin-form">
+      <div className="login">
         <h1>Login</h1>
 
         <div>

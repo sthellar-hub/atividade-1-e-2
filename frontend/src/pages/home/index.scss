@@ -9,7 +9,7 @@
       sans-serif;
   }
 
-.content {
+.text {
     flex: 1;
     padding: 20px;
 
@@ -30,7 +30,7 @@
       }
   }
   
-  .page-main {
+  .main {
     display: flex;
     gap: 20px;
     max-width: 1200px;
@@ -39,7 +39,7 @@
     flex: 1;
   }
 
-  .app-layout {
+  .principal {
     display: flex;
     flex-direction: column;
     min-height: 100vh;

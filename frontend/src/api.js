@@ -4,7 +4,6 @@ const api = axios.create({
     baseURL: 'http://localhost:3001'
 })
 
-// Interceptor para adicionar token dinamicamente
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem("TOKEN");
     if (token) {

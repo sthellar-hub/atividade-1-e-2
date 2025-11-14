@@ -1,5 +1,4 @@
-.registros {
-    
+.admin-register {
     max-width: 400px;
     margin: 80px auto;
     padding: 20px;
@@ -10,20 +9,20 @@
 }
 
 
-.registros h1 {
+.admin-register h1 {
     text-align: center;
     margin-bottom: 15px;
     color: #0056b3;
     font-size: 40px;
 }
 
-.registros label {
+.admin-register label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.registros input {
+.admin-register input {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
@@ -32,7 +31,7 @@
     box-sizing: border-box;
 }
 
-.registros button {
+.admin-register button {
     width: 100%;
     padding: 10px;
     background-color: #28a745;
@@ -44,14 +43,14 @@
     margin-bottom: 10px;
 }
 
-.registros button:hover {
+.admin-register button:hover {
     background-color: #218838;
 }
 
-.registros button:last-child {
+.admin-register button:last-child {
     background-color: #007bff;
 }
 
-.registros button:last-child:hover {
+.admin-register button:last-child:hover {
     background-color: #0056b3;
 }

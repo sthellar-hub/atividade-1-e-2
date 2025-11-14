@@ -11,18 +11,17 @@ export default function Home() {
     const nomeUsuario = localStorage.getItem("USUARIO");
     const nomeAdm = localStorage.getItem("ADM");
 
-    // Se o usuário não estiver logado
     if (!nomeUsuario && !nomeAdm) {
       navigate("/entrar");
     }
   }, []);
 
   return (
-    <div className="app-layout">
+    <div className="principal">
       <Navbar />
 
-      <main className="page-main">
-        <section className="content">
+      <main className="main">
+        <section className="text">
           <h1>Seja bem-vindo!</h1>
           <img src="/images/joia.png" alt="grupo" />
         </section>

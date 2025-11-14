@@ -3,35 +3,43 @@ import Navbar from "../../components/navbar/index.jsx";
 import Footer from "../../components/footer/index.jsx";
 import api from "../../api.js";
 import { useNavigate } from "react-router";
-import './index.scss'
+import './index.scss';
 
-export default function Register() {
-    const [usuario, setUsuario] = useState("");
+export default function AdminRegister() {
+    const [Adm, setAdm] = useState("");
     const [senha, setSenha] = useState("");
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const nomeAdm = localStorage.getItem("ADM")
+
+        if (nomeAdm) {
+            navigate('/')
+        }
+    }, [])
+
     async function cadastrar() {
-        if (!usuario.trim() || !senha.trim()) {
+        if (!Adm.trim() || !senha.trim()) {
             alert("Por favor, preencha todos os campos obrigatórios.");
             return;
         }
 
         try {
             const body = {
-                "usuario": usuario,
+                "adm": Adm,
                 "senha": senha
             }
 
-            const response = await api.post('/usuario', body);
+            await api.post('/adm/', body);
 
             alert("Usuário cadastrado com sucesso!")
-            navigate('/entrar')
+            navigate('/adm/entrar')
         } catch (error) {
             if (error.response && error.response.data && error.response.data.erro) {
                 alert(error.response.data.erro);
             } else {
-                alert("Erro ao cadastrar usuário: " + error.message);
+                alert("Erro ao cadastrar administrador: " + error.message);
             }
         }
     }
@@ -39,38 +47,28 @@ export default function Register() {
     return (
         <div>
             <Navbar showNav={false}/>
-            <div className="registros">
-            <h1>Cadastro</h1>
+            <div className="admin-register">
+                <h1>Cadastro</h1>
 
-            <div>
-                <label>Usuário</label>
+                <label>ADMIN</label>
                 <input
-                    placeholder="Usuário"
-                    value={usuario}
-                    onChange={(e) => setUsuario(e.target.value)}
+                    placeholder="Adm"
+                    value={Adm}
+                    onChange={(e) => setAdm(e.target.value)}
                 />
 
-                <br />
-
-                <label>Senha</label>
+                <label>SENHA</label>
                 <input
                     placeholder="Senha"
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
                 />
 
-                <br />
-                <br />
-
-                <button onClick={cadastrar}>Criar Usuario</button>
+                <button onClick={cadastrar}>Criar conta admin</button>
                 <p>
-                    Já tem conta? 
-                <button onClick={() => navigate('/entrar')}>
-                    Entre</button>
+                    Já tem conta admin? 
+                <button onClick={() => navigate('/adm/entrar')}>Entre</button>
                 </p>
-                
-            </div>
-            
             </div>
             <Footer/>
         </div>

@@ -14,7 +14,7 @@
     color: #0465ce;
 }
 
-.registros-section {
+.registros-info {
     margin-bottom: 30px;
     padding: 20px;
     border: 1px solid #ddd;
@@ -22,26 +22,26 @@
     background-color: #fff;
 }
 
-.registros-section h2 {
+.registros-info h2 {
     margin-bottom: 15px;
     color: #414040;
 }
 
-.registros-section ul {
+.registros-info ul {
     list-style-type: none;
     padding: 0;
 }
 
-.registros-section li {
+.registros-info li {
     padding: 10px;
     border-bottom: 1px solid #eee;
 }
 
-.registros-section li:last-child {
+.registros-info li:last-child {
     border-bottom: none;
 }
 
-.registros-section p {
+.registros-info p {
     color: #666;
     font-style: italic;
 }
