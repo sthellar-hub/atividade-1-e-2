@@ -17,7 +17,11 @@ export default function Home() {
   }, []);
 
   return (
+<<<<<<< HEAD
     <div className="principal">
+=======
+    <div className="app-layout">
+>>>>>>> 02da750c61f62587dd4ef84393105d83bfd1f816
       <Navbar />
 
       <main className="main">

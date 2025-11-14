@@ -36,7 +36,11 @@ export default function Log() {
                 <h1>Registros do Sistema</h1>
 
                 {/* Seção de Logs */}
+<<<<<<< HEAD
                 <div className="registros-info">
+=======
+                <div className="registros-section">
+>>>>>>> 02da750c61f62587dd4ef84393105d83bfd1f816
                     <h2>Logs do Sistema:</h2>
                     {logs.length > 0 ? (
                         <ul>

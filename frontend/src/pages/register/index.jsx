@@ -39,7 +39,11 @@ export default function Register() {
     return (
         <div>
             <Navbar showNav={false}/>
+<<<<<<< HEAD
             <div className="registros">
+=======
+            <div className="admin-form">
+>>>>>>> 02da750c61f62587dd4ef84393105d83bfd1f816
             <h1>Cadastro</h1>
 
             <div>
